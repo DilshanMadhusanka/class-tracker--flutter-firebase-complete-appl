@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
         title:const  Text('Class Tracker'),
       ),
       body:const Center(
-        child:Text('Welcome to Class Tracker App!'),
+        child:Text('Welcome to the Class Tracker App!'),
       ),
     );
   }
