@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "41364954983",
+    "project_id": "class-tracker-flutter-firebase",
+    "storage_bucket": "class-tracker-flutter-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41364954983:android:1b904d3b9242d9a14fd9c2",
+        "android_client_info": {
+          "package_name": "com.example.class_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUha4YHFQcu6yk3RKbrNc7sFmzeIcbPM0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
