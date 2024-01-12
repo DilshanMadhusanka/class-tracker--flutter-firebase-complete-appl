@@ -1,14 +1,59 @@
+import 'dart:io';
+
 import 'package:class_tracker/src/scrrens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import './src/common_widgets/button.dart';
 import 'src/common_widgets/container_button.dart';
 import 'src/scrrens/admin_screen/admin_dashboard.dart';
-import 'src/scrrens/home.dart';
+import 'src/scrrens/admin_screen/class/admin_class_dashboard.dart';
 import 'src/scrrens/sign_in.dart';
 import 'src/scrrens/studen_screen/teacher_details.dart';
 
+// this is original complete code
+
+
+// firebase initialize krala flutter project ekat plug kranawa
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Platform.isAndroid
+      ? await Firebase.initializeApp(
+          options: const FirebaseOptions(
+              apiKey: "AIzaSyBUha4YHFQcu6yk3RKbrNc7sFmzeIcbPM0",
+              appId: "1:41364954983:android:1b904d3b9242d9a14fd9c2",
+              messagingSenderId: "41364954983",
+              projectId: "class-tracker-flutter-firebase"))
+      : await Firebase.initializeApp();
+  runApp(const MyApp());
+}
+
+
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Class Monitoring App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home:
+          //HomePage()
+        //LoginPage(),
+          //TeacherDetailsPage(),
+          //AdminScreen(),
+          ClassManagment(),
+    );
+  }
+}
+
+
 /*
+
+// check the custom card 
+
 void main() {
   runApp(
     MaterialApp(
@@ -34,6 +79,7 @@ void main() {
               CustomContainer(
                 title: "Container 2",
                 imagePath: 'assets/images/22.jpg',
+                
                 fontColor: Colors.red,
                 bgColor: Colors.green,
                 width: 200.0,
@@ -65,10 +111,10 @@ void main() {
     ),
   );
 }
-
 */
 
 
+/*
 // retrun the pages that we created
 void main() {
   runApp(MyApp());
@@ -86,17 +132,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home:
-     // HomePage()
-      //LoginPage()
+     //HomePage()
+     // LoginPage(),
       //TeacherDetailsPage(),
-   AdminScreen(),
+       AdminScreen(),
+       
     );
   }
 }
-
-
+*/
 
 /*
+
 void main(){
   runApp(const MyApp());
 }
@@ -111,56 +158,3 @@ class MyApp extends StatelessWidget {
 
 */
 
-
-
-
-
-
-
-
-/*
-
-
-// this is original complete code
-
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Initialized the firebase
-  await Firebase.initializeApp();
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp( 
-
-    
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Class Tracker'),
-        ),
-        body: Column(
-          children: [
-            // Apply the custom button
-            
-            CustomButton(
-              textColor: Colors.black,
-              backgroundColor: Colors.blue,
-              borderColor: Colors.white,
-              text: "Click me",
-              width: 150.0,
-              height: 50.0,
-              onTap: () {
-                // Your click event logic here
-               
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-*/
