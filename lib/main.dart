@@ -7,11 +7,12 @@ import './src/common_widgets/button.dart';
 import 'src/common_widgets/container_button.dart';
 import 'src/scrrens/admin_screen/admin_dashboard.dart';
 import 'src/scrrens/admin_screen/class/admin_class_dashboard.dart';
+import 'src/scrrens/admin_screen/student/admin_student_dashboard.dart';
+import 'src/scrrens/admin_screen/student/student_view.dart';
 import 'src/scrrens/sign_in.dart';
 import 'src/scrrens/studen_screen/teacher_details.dart';
 
 // this is original complete code
-
 
 // firebase initialize krala flutter project ekat plug kranawa
 Future main() async {
@@ -27,8 +28,6 @@ Future main() async {
   runApp(const MyApp());
 }
 
-
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -40,14 +39,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home:
-        //HomePage()
-      //LoginPage(),
+          //HomePage()
+          //LoginPage(),
           //TeacherDetailsPage(),
           //AdminScreen(),
-          ClassManagment(),
-          // TeacherManagment(),
-
-
+          //ClassManagment(),
+           StudentManagement(),
+         //  StudentView(),
     );
   }
 }
