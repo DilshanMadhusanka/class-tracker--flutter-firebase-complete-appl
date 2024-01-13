@@ -40,11 +40,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home:
-          //HomePage()
-        //LoginPage(),
+        //HomePage()
+      //LoginPage(),
           //TeacherDetailsPage(),
           //AdminScreen(),
           ClassManagment(),
+          // TeacherManagment(),
+
+
     );
   }
 }
