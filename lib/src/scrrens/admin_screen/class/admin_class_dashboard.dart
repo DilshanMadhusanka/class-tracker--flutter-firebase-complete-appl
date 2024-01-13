@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../data/models/class_model.dart';
 import '../../../data/remort_data_source/firestore_helper.dart';
+import 'edit_class.dart';
 
 class ClassManagment extends StatefulWidget {
   const ClassManagment({Key? key}) : super(key: key);
@@ -65,6 +66,9 @@ class _ClassManagmentState extends State<ClassManagment> {
               const SizedBox(
                 height: 10,
               ),
+
+              // create a button
+
               InkWell(
                 onTap: () {
                   //print("create data");
@@ -101,6 +105,105 @@ class _ClassManagmentState extends State<ClassManagment> {
                 ),
                 // Your widget body goes here
               ),
+              const SizedBox(
+                height: 10,
+              ),
+
+              // create a list view
+
+              StreamBuilder<List<ClassModel>>(
+                  stream: FirestoreHelper.read(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    if (snapshot.hasError) {
+                      return const Center(
+                        child: Text("some error occured"),
+                      );
+                    }
+
+                    if (snapshot.hasData) {
+                      final classData = snapshot.data;
+                      return Expanded(
+                        child: ListView.builder(
+                          itemCount: classData!
+                              .length, // Replace with the actual number of items in your list
+                          itemBuilder: (context, index) {
+                            final singleclass = classData[index];
+                            return Container(
+                              margin: const EdgeInsets.symmetric(vertical: 5),
+                              child: ListTile(
+                                // delete methode eka implement kranwa
+
+                                onLongPress: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        title: const Text("Delete"),
+                                        content: const Text(
+                                            "Are you sure you want to delete"),
+                                        actions: [
+                                          ElevatedButton(
+                                            onPressed: () {
+                                              FirestoreHelper.delete(
+                                                      singleclass)
+                                                  .then((value) {
+                                                Navigator.pop(context);
+                                              });
+                                            },
+                                            child: Text("Delete"),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+
+                                leading: Container(
+                                  width: 40,
+                                  height: 40,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.deepPurple,
+                                    shape: BoxShape.circle,
+                                  ),
+                                ),
+                                title: Text("${singleclass.subject}"),
+                                subtitle: Text("${singleclass.teachername}"),
+
+                                // edit button eka hadanwa
+
+                                trailing: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => EditClass(
+                                                    class1: ClassModel(
+                                                        subject:
+                                                            singleclass.subject,
+                                                        teachername: singleclass
+                                                            .teachername,
+                                                        location: singleclass
+                                                            .location,
+                                                        id: singleclass.id),
+                                                  )));
+                                    },
+                                    child: Icon(Icons.edit)),
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    }
+
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  })
             ],
           ),
         ),
