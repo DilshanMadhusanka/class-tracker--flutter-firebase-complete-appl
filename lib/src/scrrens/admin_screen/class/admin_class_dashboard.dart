@@ -155,13 +155,15 @@ class _ClassManagmentState extends State<ClassManagment> {
                                                 Navigator.pop(context);
                                               });
                                             },
-                                            child: Text("Delete"),
+                                            child:  Text("Delete"),
                                           ),
                                         ],
                                       );
                                     },
                                   );
                                 },
+
+                                
 
                                 leading: Container(
                                   width: 40,
