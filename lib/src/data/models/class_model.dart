@@ -5,7 +5,7 @@ class ClassModel {
   final String? subject;
   final String? teachername;
   final String? location;
-  final String? date;
+  final DateTime? date;
   final String? time;
 
   ClassModel(
@@ -18,6 +18,7 @@ class ClassModel {
       subject: snapshot['subject'],
       teachername: snapshot['teachername'],
       location: snapshot['location'],
+     // date: snapshot['date'],
       id:snapshot['id'],
     );
   }
@@ -26,6 +27,7 @@ class ClassModel {
         "subject": subject,
         "teachername": teachername,
         "location": location,
+       // "date":date,
         "id":id,
       };
 }

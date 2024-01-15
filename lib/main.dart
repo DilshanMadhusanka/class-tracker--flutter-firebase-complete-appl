@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:class_tracker/src/scrrens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -7,10 +6,13 @@ import './src/common_widgets/button.dart';
 import 'src/common_widgets/container_button.dart';
 import 'src/scrrens/admin_screen/admin_dashboard.dart';
 import 'src/scrrens/admin_screen/class/admin_class_dashboard.dart';
+import 'src/scrrens/admin_screen/mark_attendance.dart';
 import 'src/scrrens/admin_screen/student/admin_student_dashboard.dart';
-import 'src/scrrens/admin_screen/student/student_view.dart';
+import 'src/scrrens/class_shedule_screen.dart';
+import 'src/scrrens/student_list.dart';
 import 'src/scrrens/sign_in.dart';
 import 'src/scrrens/studen_screen/teacher_details.dart';
+import 'src/scrrens/student_list.dart';
 
 // this is original complete code
 
@@ -41,16 +43,16 @@ class MyApp extends StatelessWidget {
       home:
           //HomePage()
           //LoginPage(),
-          //TeacherDetailsPage(),
-          //AdminScreen(),
-          //ClassManagment(),
-           StudentManagement(),
-         //  StudentView(),
+          //StudentListScreen(),
+          //ClassScheduleScreen(),
+      //TeacherDetailsPage(),
+      //AdminScreen(),
+      //ClassManagment(),
+      //StudentManagement(),
+      AttendanceScreen(),
     );
   }
 }
-
-
 /*
 
 // check the custom card 
@@ -113,7 +115,6 @@ void main() {
   );
 }
 */
-
 
 /*
 // retrun the pages that we created
