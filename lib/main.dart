@@ -16,15 +16,15 @@ import 'src/scrrens/studen_screen/teacher_details.dart';
 
 // firebase initialize krala flutter project ekat plug kranawa
 Future main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  Platform.isAndroid
-      ? await Firebase.initializeApp(
-          options: const FirebaseOptions(
-              apiKey: "AIzaSyBUha4YHFQcu6yk3RKbrNc7sFmzeIcbPM0",
-              appId: "1:41364954983:android:1b904d3b9242d9a14fd9c2",
-              messagingSenderId: "41364954983",
-              projectId: "class-tracker-flutter-firebase"))
-      : await Firebase.initializeApp();
+  // WidgetsFlutterBinding.ensureInitialized();
+  // Platform.isAndroid
+  //     ? await Firebase.initializeApp(
+  //         options: const FirebaseOptions(
+  //             apiKey: "AIzaSyBUha4YHFQcu6yk3RKbrNc7sFmzeIcbPM0",
+  //             appId: "1:41364954983:android:1b904d3b9242d9a14fd9c2",
+  //             messagingSenderId: "41364954983",
+  //             projectId: "class-tracker-flutter-firebase"))
+  //     : await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -44,8 +44,8 @@ class MyApp extends StatelessWidget {
           //TeacherDetailsPage(),
           //AdminScreen(),
           //ClassManagment(),
-           StudentManagement(),
-         //  StudentView(),
+          StudentManagement(),
+      //  StudentView(),
     );
   }
 }
