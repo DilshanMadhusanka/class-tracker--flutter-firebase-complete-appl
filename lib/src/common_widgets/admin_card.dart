@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomContainer extends StatelessWidget {
+class AdminCard extends StatelessWidget {
   final String title;
   final String imagePath;
   final Color fontColor;
@@ -11,7 +11,7 @@ class CustomContainer extends StatelessWidget {
   final Function()? onTap;
 
   // ignore: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
-  CustomContainer({
+  AdminCard({
     required this.title,
     required this.imagePath,
     this.fontColor = Colors.black,
@@ -28,7 +28,7 @@ class CustomContainer extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: width,
-        height: height,
+        height: 200,
         decoration: BoxDecoration(
           color: bgColor,
           borderRadius: BorderRadius.circular(cornerRadius),
@@ -39,17 +39,16 @@ class CustomContainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(height: 15.0),
               ClipRRect(
                 borderRadius: BorderRadius.circular(cornerRadius),
                 child: Image.asset(
                   imagePath,
-                  width: 90, // Set your desired image width
-                  height: 90, // Set your desired image height
+                  width: 70, // Set your desired image width
+                  height: 70, // Set your desired image height
                   fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 8.0),
               Text(
                 title,
                 textAlign: TextAlign.center,

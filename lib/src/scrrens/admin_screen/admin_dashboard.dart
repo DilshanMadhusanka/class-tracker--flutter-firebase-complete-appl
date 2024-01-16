@@ -1,6 +1,10 @@
+import 'package:class_tracker/src/common_widgets/admin_card.dart';
+import 'package:class_tracker/src/scrrens/admin_screen/class/admin_class_dashboard.dart';
+import 'package:class_tracker/src/scrrens/admin_screen/mark_attendance.dart';
+import 'package:class_tracker/src/scrrens/admin_screen/student/admin_student_dashboard.dart';
+import 'package:class_tracker/src/scrrens/class_shedule_screen.dart';
+import 'package:class_tracker/src/scrrens/student_list.dart';
 import 'package:flutter/material.dart';
-
-import '../../common_widgets/container_button.dart';
 
 // ignore: use_key_in_widget_constructors
 class AdminScreen extends StatelessWidget {
@@ -8,11 +12,14 @@ class AdminScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Admin Dashboard",style: TextStyle(
-                color: Colors.black,
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
-              ),),
+        title: const Text(
+          "Admin Dashboard",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 25.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
       ),
       body: Container(
@@ -43,35 +50,46 @@ class AdminScreen extends StatelessWidget {
                   crossAxisSpacing: 16.0,
                   mainAxisSpacing: 16.0,
                   children: [
-                    CustomContainer(
+                    AdminCard(
                       title: "Class Managment",
                       imagePath: 'assets/images/25.jpg',
-                      fontColor: Colors.black,
+                      fontColor: const Color.fromARGB(255, 255, 255, 255),
                       bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       cornerRadius: 25.0,
                       onTap: () {
+                        // Navigate to ClassManagment screen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ClassManagment()),
+                        );
                         // Handle click event here
                         // print("Container 3 Clicked!");
                       },
                     ),
-                    CustomContainer(
-                      title: "User Management",
+                    AdminCard(
+                      title: "Student Management",
                       imagePath: 'assets/images/15.jpg',
-                      fontColor: Colors.black,
+                      fontColor: const Color.fromARGB(255, 255, 255, 255),
                       bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => StudentManagement()),
+                        );
                         // Handle click event
                         //print("User Management Clicked!");
                       },
                     ),
-                    CustomContainer(
-                      title: "Dashboard Overview",
+                    AdminCard(
+                      title: "Teacher Management",
                       imagePath: 'assets/images/22.jpg',
-                      fontColor: Colors.black,
+                      fontColor: Color.fromARGB(255, 255, 255, 255),
                       bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
@@ -80,46 +98,61 @@ class AdminScreen extends StatelessWidget {
                         //print("Dashboard Overview Clicked!");
                       },
                     ),
-                    CustomContainer(
-                      title: "Calendar",
-                      imagePath: 'assets/images/19.png',
-                      fontColor: Colors.black,
-                      bgColor: Colors.blue,
-                      width: 120.0,
-                      height: 120.0,
-                      onTap: () {
-                        // Handle click event
-                        //print("Calendar Clicked!");
-                      },
-                    ),
-                    CustomContainer(
+                    AdminCard(
                       title: "Attendance Management",
                       imagePath: 'assets/images/23.png',
-                      fontColor: Colors.black,
+                      fontColor: const Color.fromARGB(255, 255, 247, 247),
                       bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AttendanceScreen()),
+                        );
                         // Handle click event
                         //print("Attendance Management Clicked!");
                       },
                     ),
-                    CustomContainer(
-                      title: "Message Center",
-                      imagePath: 'assets/images/20.png',
-                      fontColor: Colors.black,
+                    AdminCard(
+                      title: "Student List",
+                      imagePath: 'assets/images/19.png',
+                      fontColor: const Color.fromARGB(255, 255, 254, 254),
                       bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => StudentListScreen()),
+                        );
+                        // Handle click event
+                        //print("Calendar Clicked!");
+                      },
+                    ),
+                    AdminCard(
+                      title: "Class Shedule",
+                      imagePath: 'assets/images/21.png',
+                      fontColor: const Color.fromARGB(255, 255, 255, 255),
+                      bgColor: Colors.blue,
+                      width: 120.0,
+                      height: 120.0,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ClassScheduleScreen()),
+                        );
                         // Handle click event
                         //print("Message Center Clicked!");
                       },
                     ),
-                    CustomContainer(
+                    AdminCard(
                       title: "System Setting",
                       imagePath: 'assets/images/24.png',
-                      fontColor: Colors.black,
+                      fontColor: const Color.fromARGB(255, 255, 255, 255),
                       bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
@@ -128,10 +161,10 @@ class AdminScreen extends StatelessWidget {
                         //print("System Setting Clicked!");
                       },
                     ),
-                    CustomContainer(
+                    AdminCard(
                       title: "Report and Analytics",
                       imagePath: 'assets/images/21.png',
-                      fontColor: Colors.black,
+                      fontColor: const Color.fromARGB(255, 255, 255, 255),
                       bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,

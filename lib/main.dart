@@ -36,21 +36,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Class Monitoring App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home:
-          //HomePage()
-          //LoginPage(),
-          //StudentListScreen(),
-          //ClassScheduleScreen(),
-      //TeacherDetailsPage(),
-      //AdminScreen(),
-      //ClassManagment(),
-      //StudentManagement(),
-      AttendanceScreen(),
-    );
+        title: 'Class Monitoring App',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: 
+        //HomePage()
+       // LoginPage(),
+        //StudentListScreen(), //////////
+        //ClassScheduleScreen(), ///////
+        //TeacherDetailsPage(),
+        //AdminScreen(),
+        //ClassManagment(), //////
+        //StudentManagement(), //////
+        AttendanceScreen(), ///////////
+        );
   }
 }
 /*
