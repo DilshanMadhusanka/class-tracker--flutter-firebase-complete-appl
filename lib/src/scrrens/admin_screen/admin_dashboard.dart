@@ -8,7 +8,11 @@ class AdminScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Hi Admin"),
+        title: const Text("Admin Dashboard",style: TextStyle(
+                color: Colors.black,
+                fontSize: 25.0,
+                fontWeight: FontWeight.bold,
+              ),),
         centerTitle: true,
       ),
       body: Container(
@@ -16,7 +20,7 @@ class AdminScreen extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Colors.blue, Colors.white],
+            colors: [Colors.white, Colors.white],
           ),
         ),
         child: Column(
@@ -25,8 +29,9 @@ class AdminScreen extends StatelessWidget {
             const Text(
               "What are you going to do?",
               style: TextStyle(
-                color: Colors.white,
-                fontSize: 20.0,
+                color: Colors.black,
+                fontSize: 13.0,
+                fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 20.0),
@@ -42,7 +47,7 @@ class AdminScreen extends StatelessWidget {
                       title: "Class Managment",
                       imagePath: 'assets/images/25.jpg',
                       fontColor: Colors.black,
-                      bgColor: Colors.orange,
+                      bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       cornerRadius: 25.0,
@@ -55,7 +60,7 @@ class AdminScreen extends StatelessWidget {
                       title: "User Management",
                       imagePath: 'assets/images/15.jpg',
                       fontColor: Colors.black,
-                      bgColor: Colors.orange,
+                      bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       onTap: () {
@@ -67,7 +72,7 @@ class AdminScreen extends StatelessWidget {
                       title: "Dashboard Overview",
                       imagePath: 'assets/images/22.jpg',
                       fontColor: Colors.black,
-                      bgColor: Colors.orange,
+                      bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       onTap: () {
@@ -79,7 +84,7 @@ class AdminScreen extends StatelessWidget {
                       title: "Calendar",
                       imagePath: 'assets/images/19.png',
                       fontColor: Colors.black,
-                      bgColor: Colors.orange,
+                      bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       onTap: () {
@@ -91,7 +96,7 @@ class AdminScreen extends StatelessWidget {
                       title: "Attendance Management",
                       imagePath: 'assets/images/23.png',
                       fontColor: Colors.black,
-                      bgColor: Colors.orange,
+                      bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       onTap: () {
@@ -103,7 +108,7 @@ class AdminScreen extends StatelessWidget {
                       title: "Message Center",
                       imagePath: 'assets/images/20.png',
                       fontColor: Colors.black,
-                      bgColor: Colors.orange,
+                      bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       onTap: () {
@@ -115,7 +120,7 @@ class AdminScreen extends StatelessWidget {
                       title: "System Setting",
                       imagePath: 'assets/images/24.png',
                       fontColor: Colors.black,
-                      bgColor: Colors.orange,
+                      bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       onTap: () {
@@ -127,7 +132,7 @@ class AdminScreen extends StatelessWidget {
                       title: "Report and Analytics",
                       imagePath: 'assets/images/21.png',
                       fontColor: Colors.black,
-                      bgColor: Colors.orange,
+                      bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       onTap: () {

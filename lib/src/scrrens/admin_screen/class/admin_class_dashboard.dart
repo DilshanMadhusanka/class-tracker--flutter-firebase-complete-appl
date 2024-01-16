@@ -18,7 +18,9 @@ class _ClassManagmentState extends State<ClassManagment> {
   TextEditingController _subjectController = TextEditingController();
   TextEditingController _teacherNameController = TextEditingController();
   TextEditingController _locationController = TextEditingController();
-
+//-----------------------------------------------
+//DateTime? _selectedDate;
+//-------------------------------
   @override
   void dispose() {
     _subjectController.dispose();
@@ -77,7 +79,10 @@ class _ClassManagmentState extends State<ClassManagment> {
                   FirestoreHelper.create(ClassModel(
                       subject: _subjectController.text,
                       teachername: _teacherNameController.text,
-                      location: _locationController.text));
+                      location: _locationController.text,
+                      //date: _selectedDate,
+                      ));
+
                 },
                 child: Container(
                   width: 100,
@@ -176,6 +181,14 @@ class _ClassManagmentState extends State<ClassManagment> {
                                 title: Text("${singleclass.subject}"),
                                 subtitle: Text("${singleclass.teachername}"),
 
+
+
+
+
+
+
+
+
                                 // edit button eka hadanwa
 
                                 trailing: InkWell(
@@ -205,6 +218,14 @@ class _ClassManagmentState extends State<ClassManagment> {
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
+
+
+
+
+
+
+
+
                   })
             ],
           ),

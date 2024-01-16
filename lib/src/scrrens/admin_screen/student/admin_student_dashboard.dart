@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../data/models/student.dart';
 import '../../../data/remort_data_source/student_firebase_helper.dart';
 import 'edit_student.dart';
-import 'student_view.dart';
+//import 'student_view.dart';
 
 class StudentManagement extends StatefulWidget {
   const StudentManagement({Key? key}) : super(key: key);

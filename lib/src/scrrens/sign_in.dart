@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: LoginBody(),
+    return SafeArea(
+      child: MaterialApp(
+        home: Scaffold(
+          body: LoginBody(),
+        ),
       ),
     );
   }
@@ -17,9 +19,9 @@ class LoginBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:const BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.blue, Colors.white],
+          colors: [Colors.white, Colors.white],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
@@ -29,15 +31,16 @@ class LoginBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-           const Padding(
+            const Padding(
               padding: EdgeInsets.symmetric(vertical: 40.0),
               child: Column(
                 children: [
+                  SizedBox(height: 14.0),
                   Text(
                     'Welcome to Class Tracker',
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24.0,
+                      color: Colors.black,
+                      fontSize: 26.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -45,7 +48,7 @@ class LoginBody extends StatelessWidget {
                   Text(
                     'Sign in to continue',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 16.0,
                     ),
                   ),
@@ -65,7 +68,7 @@ class LoginBody extends StatelessWidget {
 
   Widget _buildUsernameTextField() {
     return const Padding(
-      padding: EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(20.0),
       child: TextField(
         decoration: InputDecoration(
           labelText: 'Username',
@@ -78,7 +81,7 @@ class LoginBody extends StatelessWidget {
 
   Widget _buildPasswordTextField() {
     return const Padding(
-      padding: EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(20.0),
       child: TextField(
         obscureText: true,
         decoration: InputDecoration(
@@ -95,7 +98,7 @@ class LoginBody extends StatelessWidget {
     String selectedRole = roles[0];
 
     return Padding(
-      padding:const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(20.0),
       child: DropdownButton<String>(
         value: selectedRole,
         onChanged: (String? newValue) {
@@ -108,22 +111,22 @@ class LoginBody extends StatelessWidget {
           );
         }).toList(),
         isExpanded: true,
-        icon:const Icon(Icons.arrow_drop_down),
+        icon: const Icon(Icons.arrow_drop_down),
         iconSize: 24,
         elevation: 16,
-        style:const TextStyle(color: Colors.black),
+        style: const TextStyle(color: Colors.black),
       ),
     );
   }
 
   Widget _buildSignInButton() {
     return Padding(
-      padding:const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(12.0),
       child: ElevatedButton(
         onPressed: () {
           // Handle sign-in button press
         },
-        child:const Text('Sign In'),
+        child: const Text('Sign In'),
       ),
     );
   }
@@ -134,10 +137,10 @@ class LoginBody extends StatelessWidget {
         // Handle back button press
         Navigator.pop(context);
       },
-      icon:const Icon(Icons.arrow_back),
+      icon: const Icon(Icons.arrow_back),
       label: const Text('Back'),
       style: TextButton.styleFrom(
-        foregroundColor: Colors.white,
+        foregroundColor: Colors.black,
       ),
     );
   }
