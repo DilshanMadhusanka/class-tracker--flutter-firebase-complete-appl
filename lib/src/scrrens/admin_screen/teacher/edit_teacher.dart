@@ -1,38 +1,35 @@
 import 'package:class_tracker/src/data/models/student.dart'; // Import your StudentModel
+import 'package:class_tracker/src/data/models/teacher.dart';
+import 'package:class_tracker/src/data/remort_data_source/teacher_firebase_helper.dart';
 import 'package:flutter/material.dart';
 import '../../../data/remort_data_source/student_firebase_helper.dart';
 
-class EditStudent extends StatefulWidget {
-  final StudentModel student;
-  const EditStudent({Key? key, required this.student}) : super(key: key);
+class EditTeacher extends StatefulWidget {
+  final TeacherModel teacher;
+  const EditTeacher({Key? key, required this.teacher}) : super(key: key);
 
   @override
-  _EditStudentState createState() => _EditStudentState();
+  _EditTeacherState createState() => _EditTeacherState();
 }
 
-class _EditStudentState extends State<EditStudent> {
+class _EditTeacherState extends State<EditTeacher> {
   TextEditingController? _firstNameController;
   TextEditingController? _lastNameController;
   TextEditingController? _emailController;
   TextEditingController? _mobileNumberController;
-  TextEditingController? _parentNameController;
-  TextEditingController? _parentNICController;
-  TextEditingController? _parentMobileNumberController;
+
+  TextEditingController? _NICController;
 
   @override
   void initState() {
     _firstNameController =
-        TextEditingController(text: widget.student.firstName);
-    _lastNameController = TextEditingController(text: widget.student.lastName);
-    _emailController = TextEditingController(text: widget.student.email);
+        TextEditingController(text: widget.teacher.firstName);
+    _lastNameController = TextEditingController(text: widget.teacher.lastName);
+    _emailController = TextEditingController(text: widget.teacher.email);
     _mobileNumberController =
-        TextEditingController(text: widget.student.mobileNumber);
-    _parentNameController =
-        TextEditingController(text: widget.student.parentName);
-    _parentNICController =
-        TextEditingController(text: widget.student.parentNIC);
-    _parentMobileNumberController =
-        TextEditingController(text: widget.student.parentMobileNumber);
+        TextEditingController(text: widget.teacher.mobileNumber);
+
+    _NICController = TextEditingController(text: widget.teacher.NIC);
 
     super.initState();
   }
@@ -43,9 +40,8 @@ class _EditStudentState extends State<EditStudent> {
     _lastNameController!.dispose();
     _emailController!.dispose();
     _mobileNumberController!.dispose();
-    _parentNameController!.dispose();
-    _parentNICController!.dispose();
-    _parentMobileNumberController!.dispose();
+
+    _NICController!.dispose();
 
     super.dispose();
   }
@@ -55,7 +51,7 @@ class _EditStudentState extends State<EditStudent> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Edit Student"),
+          title: const Text("Edit Teacher"),
         ),
         body: Padding(
           padding: const EdgeInsets.all(8),
@@ -101,47 +97,31 @@ class _EditStudentState extends State<EditStudent> {
               const SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                controller: _parentNameController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Parent Name",
-                ),
-              ),
               const SizedBox(
                 height: 10,
               ),
               TextFormField(
-                controller: _parentNICController,
+                controller: _NICController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: "Parent NIC",
+                  hintText: "NIC",
                 ),
               ),
               const SizedBox(
                 height: 10,
-              ),
-              TextFormField(
-                controller: _parentMobileNumberController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Parent Mobile Number",
-                ),
               ),
               const SizedBox(
                 height: 10,
               ),
               InkWell(
                 onTap: () {
-                  FirestoreHelperStudent.updateStudent(StudentModel(
-                    id: widget.student.id,
+                  FirestoreHelperTeacher.updateTeacher(TeacherModel(
+                    id: widget.teacher.id,
                     firstName: _firstNameController!.text,
                     lastName: _lastNameController!.text,
                     email: _emailController!.text,
                     mobileNumber: _mobileNumberController!.text,
-                    parentName: _parentNameController!.text,
-                    parentNIC: _parentNICController!.text,
-                    parentMobileNumber: _parentMobileNumberController!.text,
+                    NIC: _NICController!.text,
                   )).then((value) {
                     Navigator.pop(context);
                   });

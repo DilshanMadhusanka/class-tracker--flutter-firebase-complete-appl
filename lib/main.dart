@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:class_tracker/src/scrrens/admin_screen/teacher/admin_teacher_dashboard.dart';
 import 'package:class_tracker/src/scrrens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -40,16 +41,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:
-          //HomePage()
-          //LoginPage(),
-          //StudentListScreen(),
-          //ClassScheduleScreen(),
+      home: //HomePage()
+          LoginPage(),
+      //StudentListScreen(),
+      //ClassScheduleScreen(),
       //TeacherDetailsPage(),
       //AdminScreen(),
       //ClassManagment(),
       //StudentManagement(),
-      AttendanceScreen(),
+      //TeacherManagement(),
+      //AttendanceScreen(),
     );
   }
 }

@@ -36,8 +36,7 @@ class FirestoreHelperStudent {
 
   // Implement the update method for students
   static Future updateStudent(StudentModel student) async {
-    final studentCollection =
-        FirebaseFirestore.instance.collection("students");
+    final studentCollection = FirebaseFirestore.instance.collection("students");
 
     final docRef = studentCollection.doc(student.id);
 
@@ -61,11 +60,8 @@ class FirestoreHelperStudent {
 
   // Implement the delete method for students
   static Future deleteStudent(StudentModel student) async {
-    final studentCollection =
-        FirebaseFirestore.instance.collection("students");
+    final studentCollection = FirebaseFirestore.instance.collection("students");
 
     final docRef = studentCollection.doc(student.id).delete();
-
-    
   }
 }
