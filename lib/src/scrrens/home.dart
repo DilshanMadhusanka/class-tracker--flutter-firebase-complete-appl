@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../common_widgets/class_card.dart';
 import '../common_widgets/container_button.dart';
+import 'sign_in.dart';
 
 // ignore: use_key_in_widget_constructors
 class HomePage extends StatelessWidget {
@@ -137,6 +138,11 @@ class HomePage extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: ElevatedButton(
         onPressed: () {
+          Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginPage()),
+                        );
           // Handle sign-in button press
         },
         style: ElevatedButton.styleFrom(
@@ -148,7 +154,7 @@ class HomePage extends StatelessWidget {
           padding:
               EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0), // Padding
         ),
-        child: Text(
+        child: const Text(
           'Sign In',
           style: TextStyle(
             fontSize: 18.0,

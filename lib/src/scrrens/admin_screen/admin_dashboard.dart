@@ -6,6 +6,9 @@ import 'package:class_tracker/src/scrrens/class_shedule_screen.dart';
 import 'package:class_tracker/src/scrrens/student_list.dart';
 import 'package:flutter/material.dart';
 
+import '../teacher_list_screen.dart';
+import 'teacher/admin_teacher_dashboard.dart';
+
 // ignore: use_key_in_widget_constructors
 class AdminScreen extends StatelessWidget {
   @override
@@ -52,7 +55,7 @@ class AdminScreen extends StatelessWidget {
                   children: [
                     AdminCard(
                       title: "Class Managment",
-                      imagePath: 'assets/images/25.jpg',
+                      imagePath: 'assets/images/11.jpg',
                       fontColor: const Color.fromARGB(255, 255, 255, 255),
                       bgColor: Colors.blue,
                       width: 120.0,
@@ -71,7 +74,7 @@ class AdminScreen extends StatelessWidget {
                     ),
                     AdminCard(
                       title: "Student Management",
-                      imagePath: 'assets/images/15.jpg',
+                      imagePath: 'assets/images/5.jpg',
                       fontColor: const Color.fromARGB(255, 255, 255, 255),
                       bgColor: Colors.blue,
                       width: 120.0,
@@ -88,12 +91,17 @@ class AdminScreen extends StatelessWidget {
                     ),
                     AdminCard(
                       title: "Teacher Management",
-                      imagePath: 'assets/images/22.jpg',
+                      imagePath: 'assets/images/25.jpg',
                       fontColor: Color.fromARGB(255, 255, 255, 255),
                       bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => TeacherManagement()),
+                        );
                         // Handle click event
                         //print("Dashboard Overview Clicked!");
                       },
@@ -117,7 +125,7 @@ class AdminScreen extends StatelessWidget {
                     ),
                     AdminCard(
                       title: "Student List",
-                      imagePath: 'assets/images/19.png',
+                      imagePath: 'assets/images/1.png',
                       fontColor: const Color.fromARGB(255, 255, 254, 254),
                       bgColor: Colors.blue,
                       width: 120.0,
@@ -134,7 +142,7 @@ class AdminScreen extends StatelessWidget {
                     ),
                     AdminCard(
                       title: "Class Shedule",
-                      imagePath: 'assets/images/21.png',
+                      imagePath: 'assets/images/16.jpg',
                       fontColor: const Color.fromARGB(255, 255, 255, 255),
                       bgColor: Colors.blue,
                       width: 120.0,
@@ -150,19 +158,24 @@ class AdminScreen extends StatelessWidget {
                       },
                     ),
                     AdminCard(
-                      title: "System Setting",
-                      imagePath: 'assets/images/24.png',
+                      title: "Teacher List",
+                      imagePath: 'assets/images/222.jpg',
                       fontColor: const Color.fromARGB(255, 255, 255, 255),
                       bgColor: Colors.blue,
                       width: 120.0,
                       height: 120.0,
                       onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => TeacherListScreen()),
+                        );
                         // Handle click event
                         //print("System Setting Clicked!");
                       },
                     ),
                     AdminCard(
-                      title: "Report and Analytics",
+                      title: "calender",
                       imagePath: 'assets/images/21.png',
                       fontColor: const Color.fromARGB(255, 255, 255, 255),
                       bgColor: Colors.blue,

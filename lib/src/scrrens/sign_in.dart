@@ -1,30 +1,53 @@
 import 'package:flutter/material.dart';
 
-// ignore: use_key_in_widget_constructors
+import 'admin_screen/admin_dashboard.dart';
+import 'studen_screen/student_dashboard.dart';
+import 'teacher_screen/teacher_dashboard.dart';
+
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: MaterialApp(
-        home: Scaffold(
-          body: LoginBody(),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Class Tracker',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.blue, // Set app bar color to blue
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
+      body: LoginBody(),
     );
   }
 }
 
-// ignore: use_key_in_widget_constructors
-class LoginBody extends StatelessWidget {
+class LoginBody extends StatefulWidget {
+  @override
+  _LoginBodyState createState() => _LoginBodyState();
+}
+
+class _LoginBodyState extends State<LoginBody> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.white, Colors.white],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        ),
+        color: Colors.white, // Set body color to white
       ),
       child: SingleChildScrollView(
         child: Column(
@@ -39,7 +62,7 @@ class LoginBody extends StatelessWidget {
                   Text(
                     'Welcome to Class Tracker',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.blue, // Set text color to blue
                       fontSize: 26.0,
                       fontWeight: FontWeight.bold,
                     ),
@@ -48,99 +71,151 @@ class LoginBody extends StatelessWidget {
                   Text(
                     'Sign in to continue',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.blue, // Set text color to blue
                       fontSize: 16.0,
                     ),
                   ),
                 ],
               ),
             ),
-            _buildUsernameTextField(),
+            _buildEmailTextField(),
             _buildPasswordTextField(),
-            _buildRoleDropdown(),
-            _buildSignInButton(),
-            _buildBackButton(context),
+            _buildLoginButton(context),
+            _buildRegisterButton(context),
+            _buildForgotPasswordButton(context),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildUsernameTextField() {
-    return const Padding(
-      padding: EdgeInsets.all(20.0),
+  Widget _buildEmailTextField() {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
       child: TextField(
+        controller: emailController,
+        keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
-          labelText: 'Username',
+          labelText: 'Email',
           filled: true,
           fillColor: Colors.white,
+          border: OutlineInputBorder(
+            // Add border around text field
+            borderRadius: BorderRadius.circular(10.0),
+          ),
         ),
       ),
     );
   }
 
   Widget _buildPasswordTextField() {
-    return const Padding(
-      padding: EdgeInsets.all(20.0),
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
       child: TextField(
+        controller: passwordController,
         obscureText: true,
         decoration: InputDecoration(
           labelText: 'Password',
           filled: true,
           fillColor: Colors.white,
+          border: OutlineInputBorder(
+            // Add border around text field
+            borderRadius: BorderRadius.circular(10.0),
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildRoleDropdown() {
-    List<String> roles = ['Teacher', 'Student', 'Admin', 'Parent'];
-    String selectedRole = roles[0];
-
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: DropdownButton<String>(
-        value: selectedRole,
-        onChanged: (String? newValue) {
-          // Handle role selection
-        },
-        items: roles.map((String role) {
-          return DropdownMenuItem<String>(
-            value: role,
-            child: Text(role),
-          );
-        }).toList(),
-        isExpanded: true,
-        icon: const Icon(Icons.arrow_drop_down),
-        iconSize: 24,
-        elevation: 16,
-        style: const TextStyle(color: Colors.black),
-      ),
-    );
-  }
-
-  Widget _buildSignInButton() {
+  Widget _buildLoginButton(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: ElevatedButton(
         onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => StudentScreen()),
+          );
           // Handle sign-in button press
         },
-        child: const Text('Sign In'),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.blue, // Background color
+          onPrimary: Colors.white, // Text color
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0), // Rounded corners
+          ),
+          padding: const EdgeInsets.symmetric(
+              horizontal: 20.0, vertical: 12.0), // Padding
+        ),
+        child: const Text(
+          'Student',
+          style: TextStyle(
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }
 
-  Widget _buildBackButton(BuildContext context) {
-    return TextButton.icon(
-      onPressed: () {
-        // Handle back button press
-        Navigator.pop(context);
-      },
-      icon: const Icon(Icons.arrow_back),
-      label: const Text('Back'),
-      style: TextButton.styleFrom(
-        foregroundColor: Colors.black,
+  Widget _buildRegisterButton(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: ElevatedButton(
+        onPressed: () {
+           Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TeacherScreen()),
+          );
+          // Handle sign-in button press
+        },
+        style: ElevatedButton.styleFrom(
+          primary: Colors.blue, // Background color
+          onPrimary: Colors.white, // Text color
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0), // Rounded corners
+          ),
+          padding: const EdgeInsets.symmetric(
+              horizontal: 20.0, vertical: 12.0), // Padding
+        ),
+        child: const Text(
+          'Teacher',
+          style: TextStyle(
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildForgotPasswordButton(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AdminScreen()),
+          );
+          // Handle sign-in button press
+        },
+        style: ElevatedButton.styleFrom(
+          primary: Colors.blue, // Background color
+          onPrimary: Colors.white, // Text color
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0), // Rounded corners
+          ),
+          padding: const EdgeInsets.symmetric(
+              horizontal: 20.0, vertical: 12.0), // Padding
+        ),
+        child: const Text(
+          'Admin',
+          style: TextStyle(
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }

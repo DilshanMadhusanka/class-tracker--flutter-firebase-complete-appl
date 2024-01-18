@@ -8,11 +8,16 @@ import 'src/scrrens/admin_screen/admin_dashboard.dart';
 import 'src/scrrens/admin_screen/class/admin_class_dashboard.dart';
 import 'src/scrrens/admin_screen/mark_attendance.dart';
 import 'src/scrrens/admin_screen/student/admin_student_dashboard.dart';
+import 'src/scrrens/admin_screen/teacher/admin_teacher_dashboard.dart';
 import 'src/scrrens/class_shedule_screen.dart';
+import 'src/scrrens/studen_screen/student_dashboard.dart';
+
+///scrrens/studen_screen/student_dashboard.dart';
 import 'src/scrrens/student_list.dart';
 import 'src/scrrens/sign_in.dart';
-import 'src/scrrens/studen_screen/teacher_details.dart';
 import 'src/scrrens/student_list.dart';
+import 'src/scrrens/teacher_list_screen.dart';
+import 'src/scrrens/teacher_screen/teacher_dashboard.dart';
 
 // this is original complete code
 
@@ -36,21 +41,36 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Class Monitoring App',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: 
-        //HomePage()
-       // LoginPage(),
-        //StudentListScreen(), //////////
-        //ClassScheduleScreen(), ///////
-        //TeacherDetailsPage(),
-        //AdminScreen(),
-        //ClassManagment(), //////
-        //StudentManagement(), //////
-        AttendanceScreen(), ///////////
-        );
+      debugShowCheckedModeBanner: false,
+      title: 'Class Monitoring App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      // initialRoute: '/login', // Assuming you have a login screen
+      // routes: {
+      //   '/teacher_dashboard': (context) => TeacherDashboard(),
+      //   '/student_dashboard': (context) => StudentDashboard(),
+      //   //'/parent_dashboard': (context) => ParentDashboard(),
+      //   '/admin_dashboard': (context) => AdminScreen(),
+      //   '/login': (context) => LoginPage(), // Make sure you have a login screen
+      //},
+      home:
+          //LoginPage(),
+          //TeacherDashboard(),
+          //StudentDashboard(),
+          //TeacherListScreen(),
+          //TeacherManagement(),
+          //StudentScreen(),
+          HomePage(),
+      //LoginPage(),
+      //StudentListScreen(), //////////
+      //ClassScheduleScreen(), ///////
+      //TeacherDetailsPage(),
+      //AdminScreen(),
+      //ClassManagment(), //////
+      //StudentManagement(), //////
+      //AttendanceScreen(), ///////////
+    );
   }
 }
 /*
@@ -159,4 +179,3 @@ class MyApp extends StatelessWidget {
 }
 
 */
-
